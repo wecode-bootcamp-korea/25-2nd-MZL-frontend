@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class booking extends Component {
-  render() {
-    return <div></div>;
-  }
-}
+const Booking = () => (
+  <div>
+    <h1>Hello</h1>
+  </div>
+);
 
-export default booking;
+export default Booking;
