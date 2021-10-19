@@ -4,53 +4,51 @@ import styled from 'styled-components';
 
 function Nav() {
   return (
-    <>
-      <Wrapper>
-        <Input>
-          <LSide>
-            <Link>
-              <Logo src="./images/1111.png" />
-            </Link>
-            <Search />
-          </LSide>
-          <RSide>
-            <Btn to="/">파트너 등록하기</Btn>
-            <Btn to="/">로그인</Btn>
-            <BtnIn>회원가입</BtnIn>
-          </RSide>
-        </Input>
-        <Navi>
-          <List>
-            <SLink to="/">항공권</SLink>
-          </List>
-          <List>
-            <SLink to="/">숙소</SLink>
-          </List>
-          <List>
-            <SLink to="/">렌터카</SLink>
-          </List>
-          <List>
-            <SLink to="/">투어.티켓</SLink>
-          </List>
-          <List>
-            <SLink to="/">해외여행스캐너</SLink>
-          </List>
-          <List>
-            <SLink to="/">할인혜택</SLink>
-          </List>
-          <List>
-            <SLink to="/">제주호텔특가</SLink>
-          </List>
-          <List>
-            <SLink to="/">해외패키지</SLink>
-          </List>
-          <List>
-            <SLink to="/">랜선투어</SLink>
-          </List>
-        </Navi>
-        <NavLine />
-      </Wrapper>
-    </>
+    <Wrapper>
+      <Input>
+        <LSide>
+          <Link>
+            <Logo src="./images/1111.png" />
+          </Link>
+          <Search />
+        </LSide>
+        <RSide>
+          <Btn to="/">파트너 등록하기</Btn>
+          <Btn to="/">로그인</Btn>
+          <BtnIn>회원가입</BtnIn>
+        </RSide>
+      </Input>
+      <Navi>
+        <List>
+          <SLink to="/">항공권</SLink>
+        </List>
+        <List>
+          <SLink to="/">숙소</SLink>
+        </List>
+        <List>
+          <SLink to="/">렌터카</SLink>
+        </List>
+        <List>
+          <SLink to="/">투어.티켓</SLink>
+        </List>
+        <List>
+          <SLink to="/">해외여행스캐너</SLink>
+        </List>
+        <List>
+          <SLink to="/">할인혜택</SLink>
+        </List>
+        <List>
+          <SLink to="/">제주호텔특가</SLink>
+        </List>
+        <List>
+          <SLink to="/">해외패키지</SLink>
+        </List>
+        <List>
+          <SLink to="/">랜선투어</SLink>
+        </List>
+      </Navi>
+      <NavLine />
+    </Wrapper>
   );
 }
 
