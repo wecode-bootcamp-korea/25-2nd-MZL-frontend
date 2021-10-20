@@ -84,17 +84,17 @@ const SignLink = styled(Link)`
 
 const { Kakao } = window;
 
-function Login(props) {
+function Login() {
   const kakaoLogin = () => {
     Kakao.Auth.login({
       success: function (authObj) {
-        fetch('http://10.58.2.197:8000/users/login', {
+        fetch('http://10.58.5.210:8000/users/login', {
           method: 'POST',
           body: JSON.stringify({ access_token: authObj.access_token }),
         })
           .then(res => res.json())
-          // .then(res => localStorage.setItem('token', res.access_token));
-          .then(res => console.log(res));
+          .then(res => localStorage.setItem('token', res.access_token));
+        // .then(res => console.log(res));
       },
     });
   };
