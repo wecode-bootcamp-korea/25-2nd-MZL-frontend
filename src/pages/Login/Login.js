@@ -82,14 +82,22 @@ const SignLink = styled(Link)`
   color: rgba(0, 0, 0, 0.8);
 `;
 
-function Login() {
-  // const kakaoLogin = () => {
-  //   Kakao.Auth.authorize({
-  //     success: function (authObj) {
-  //       fetch();
-  //     },
-  //   });
-  // };
+const { Kakao } = window;
+
+function Login(props) {
+  const kakaoLogin = () => {
+    Kakao.Auth.login({
+      success: function (authObj) {
+        fetch('http://10.58.2.197:8000/users/login', {
+          method: 'POST',
+          body: JSON.stringify({ access_token: authObj.access_token }),
+        })
+          .then(res => res.json())
+          // .then(res => localStorage.setItem('token', res.access_token));
+          .then(res => console.log(res));
+      },
+    });
+  };
   return (
     <Big>
       <LoginBox>
@@ -100,7 +108,8 @@ function Login() {
         <Info>
           <span>여행의 모든 것, 마이리얼트립</span>
         </Info>
-        <Kakaoo>
+        <Kakaoo onClick={kakaoLogin}>
+          {/* <Kakaoo> */}
           <span>카카오로 계속하기</span>
         </Kakaoo>
         <Social>
