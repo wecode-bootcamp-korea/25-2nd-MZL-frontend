@@ -1,0 +1,84 @@
+{
+  "product": [
+    {
+      "id": 0,
+      "category": ["가이드 투어", "제주도"],
+      "title": "[제주동쪽] 제주도 동부 버스여행 [매일 출발 / 1인도 출발]",
+      "original": 28900,
+      "discount": 23900,
+      "img_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFwvX8nRIIq81y1TR1ELyGkBnEmQuXu1N96Q&usqp=CAU",
+      "star": 5,
+      "review_count": 12
+    },
+    {
+      "id": 1,
+      "category": ["티켓/패스", "제주"],
+      "title": "[이색체험] 귤 맛있겠쥬? 먹고싶쥬?",
+      "original": 59900,
+      "discount": 55000,
+      "img_url": "https://blog.kakaocdn.net/dn/bAFmYH/btqPuSsxNc2/J1sKg1JLWNXV7HEEbQumYk/img.jpg",
+      "star": 4,
+      "review_count": 1
+    },
+    {
+      "id": 2,
+      "category": ["스냅촬영", "제주"],
+      "title": "[스냅 기획전] 별이 쏟아진다는 은하수 맛집",
+      "original": 29900,
+      "discount": 20000,
+      "img_url": "https://media.cntraveler.com/photos/60f5a7fa964f812d9f962ceb/master/pass/Stargazing-2021_PRK0G2.jpg",
+      "star": 2,
+      "review_count": 192
+    },
+    {
+      "id": 3,
+      "category": ["투어", "파리"],
+      "title": "[현지Live 랜선투어] 정희태 가이드의 파리 워킹투어",
+      "original": 40000,
+      "discount": 29900,
+      "img_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQPlF5CqftzUcyGPgW4Mo21QoqZHYu25k2FA&usqp=CAU",
+      "star": 5,
+      "review_count": 36
+    },
+    {
+      "id": 4,
+      "category": ["티켓/패스", "서울"],
+      "title": "[바로사용] 롯데월드 아쿠아리움 입장권",
+      "original": 32000,
+      "discount": 25500,
+      "img_url": "https://img.animalplanet.co.kr/news/2019/11/10/700/nng917xev1a73uwa6155.jpg",
+      "star": 5,
+      "review_count": 36
+    },
+    {
+      "id": 0,
+      "category": ["가이드 투어", "제주도"],
+      "title": "[제주동쪽] 제주도 동부 버스여행 [매일 출발 / 1인도 출발]",
+      "original": 28900,
+      "discount": 23900,
+      "img_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFwvX8nRIIq81y1TR1ELyGkBnEmQuXu1N96Q&usqp=CAU",
+      "star": 5,
+      "review_count": 12
+    },
+    {
+      "id": 1,
+      "category": ["티켓/패스", "제주"],
+      "title": "[이색체험] 귤 맛있겠쥬? 먹고싶쥬?",
+      "original": 59900,
+      "discount": 55000,
+      "img_url": "https://blog.kakaocdn.net/dn/bAFmYH/btqPuSsxNc2/J1sKg1JLWNXV7HEEbQumYk/img.jpg",
+      "star": 4,
+      "review_count": 1
+    },
+    {
+      "id": 2,
+      "category": ["스냅촬영", "제주"],
+      "title": "[스냅 기획전] 별이 쏟아진다는 은하수 맛집",
+      "original": 29900,
+      "discount": 20000,
+      "img_url": "https://media.cntraveler.com/photos/60f5a7fa964f812d9f962ceb/master/pass/Stargazing-2021_PRK0G2.jpg",
+      "star": 2,
+      "review_count": 192
+    }
+  ]
+}

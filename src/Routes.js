@@ -5,6 +5,7 @@ import Footer from './components/Footer/Footer';
 import Main from './pages/main/Main';
 import Flightschedule from './components/Flightschedule/Flightschedule';
 import SimpleSlider from './components/Advertisement/Advertisement';
+import ProductList from './components/ProductList/ProductList';
 
 class Routes extends React.Component {
   render() {
@@ -15,6 +16,7 @@ class Routes extends React.Component {
         <Switch>
           <Route exact path="/" component={Main} />
           <Route exact path="/fs" component={Flightschedule} />
+          <Route exact path="/productlist" component={ProductList} />
         </Switch>
         <Footer />
       </Router>
