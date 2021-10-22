@@ -6,6 +6,7 @@ import Main from './pages/main/Main';
 import Flightschedule from './components/Flightschedule/Flightschedule';
 import SimpleSlider from './components/Advertisement/Advertisement';
 import ProductList from './components/ProductList/ProductList';
+import MainCityList from './pages/maincitylist/MainCityList';
 
 class Routes extends React.Component {
   render() {
@@ -17,6 +18,7 @@ class Routes extends React.Component {
           <Route exact path="/" component={Main} />
           <Route exact path="/fs" component={Flightschedule} />
           <Route exact path="/productlist" component={ProductList} />
+          <Route exact path="/maincitylist" component={MainCityList} />
         </Switch>
         <Footer />
       </Router>
