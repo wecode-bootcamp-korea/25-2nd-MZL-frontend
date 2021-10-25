@@ -1,0 +1,24 @@
+{
+  "flights": [
+    {
+      "airline": "대한항공",
+      "code": "RS901",
+      "logoImage": "https://cdn.xxl.thumbs.canstockphoto.co.kr/%EB%B9%84%ED%96%89%EA%B8%B0-%EB%A1%9C%EA%B3%A0-%EB%94%94%EC%9E%90%EC%9D%B8-%EB%B3%B8%EB%9C%A8%EB%8A%94-%EA%B3%B5%EA%B5%AC-%EB%B2%A1%ED%84%B0-%ED%81%B4%EB%A6%BD%EC%95%84%ED%8A%B8_csp80172612.jpg",
+      "departureTime": "06:10",
+      "arriveTime": "7:10",
+      "seat": "일반석",
+      "extraSeat": "5석",
+      "price": 50000
+    },
+    {
+      "airline": "재롱에어",
+      "code": "JJ1204",
+      "logoImage": "https://t1.daumcdn.net/liveboard/Lovedoongdoong/ba449cf0fca541a4838afc41854aaacd.jpg",
+      "departureTime": "15:40",
+      "arriveTime": "16:50",
+      "seat": "비즈니스석",
+      "extraSeat": "3석",
+      "price": 290000
+    }
+  ]
+}
