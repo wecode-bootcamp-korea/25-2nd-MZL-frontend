@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -28,16 +28,6 @@ const MENU_LIST = [
 
 function Nav(props) {
   const TOKEN = localStorage.getItem('token');
-  const [list, setList] = useState([]);
-
-  // useEffect(() => {
-  //   fetch('http://10.58.5.210:8000/menus/menu')
-  //     .then(res => res.json())
-  //     .then(res => setList(res.menu));
-  // }, []);
-
-  console.log(list);
-
   const logoutBtn = () => {
     localStorage.clear();
     props.history.push('/');
@@ -91,7 +81,6 @@ const Wrapper = styled.div`
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  height: 150px;
   width: 100%;
 `;
 
@@ -164,7 +153,8 @@ const Btn = styled(Link)`
 const Navi = styled.ul`
   display: flex;
   width: 65%;
-  margin: 30px 0px;
+  margin-bottom: 1px;
+  margin-top: 20px;
 `;
 
 const List = styled.li`
@@ -188,7 +178,6 @@ const SLink = styled(Link)`
 `;
 
 const NavLine = styled.div`
-  position: absolute;
   top: 120px;
   width: 100%;
   border-top: 0.3px solid rgba(0, 0, 0, 0.1);
