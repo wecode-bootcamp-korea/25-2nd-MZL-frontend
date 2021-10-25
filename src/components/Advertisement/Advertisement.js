@@ -24,7 +24,7 @@ const ImageLists = [
 ];
 
 const SliderWrap = styled.div`
-  margin: 150px 120px 150px 120px;
+  margin: 150px 450px 150px 450px;
 
   img {
     width: 100%;
