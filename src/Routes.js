@@ -7,6 +7,7 @@ import Flightschedule from './components/Flightschedule/Flightschedule';
 import SimpleSlider from './components/Advertisement/Advertisement';
 import ProductList from './components/ProductList/ProductList';
 import MainCityList from './pages/maincitylist/MainCityList';
+import Login from './pages/Login/Login';
 
 class Routes extends React.Component {
   render() {
@@ -19,6 +20,7 @@ class Routes extends React.Component {
           <Route exact path="/fs" component={Flightschedule} />
           <Route exact path="/productlist" component={ProductList} />
           <Route exact path="/maincitylist" component={MainCityList} />
+          <Route exact path={['/login', '/signup']} component={Login} />
         </Switch>
         <Footer />
       </Router>
