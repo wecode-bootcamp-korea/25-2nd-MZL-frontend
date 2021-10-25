@@ -8,6 +8,7 @@ import ProductList from './components/ProductList/ProductList';
 import MainCityList from './pages/maincitylist/MainCityList';
 import Login from './pages/Login/Login';
 import Flightmainpage from './pages/flightmainpage/Flightmainpage';
+import Cart from './components/Cart/Cart';
 
 class Routes extends React.Component {
   render() {
@@ -21,6 +22,7 @@ class Routes extends React.Component {
           <Route exact path="/maincitylist" component={MainCityList} />
           <Route exact path={['/login', '/signup']} component={Login} />
           <Route exact path="/air" component={Flightmainpage} />
+          <Route exact path="/cart" component={Cart} />
         </Switch>
         <Footer />
       </Router>
