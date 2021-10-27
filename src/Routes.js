@@ -8,17 +8,19 @@ import SimpleSlider from './components/Advertisement/Advertisement';
 import ProductList from './components/ProductList/ProductList';
 import MainCityList from './pages/maincitylist/MainCityList';
 
+import Payment from './pages/Payment/Payment';
 class Routes extends React.Component {
   render() {
     return (
       <Router>
         <Nav />
-        <SimpleSlider />
+        {/* <SimpleSlider /> */}
         <Switch>
           <Route exact path="/" component={Main} />
           <Route exact path="/fs" component={Flightschedule} />
           <Route exact path="/productlist" component={ProductList} />
           <Route exact path="/maincitylist" component={MainCityList} />
+          <Route exact path="/pay" component={Payment} />
         </Switch>
         <Footer />
       </Router>

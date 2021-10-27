@@ -1,8 +1,123 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import Flightschedule from '../../components/Flightschedule/Flightschedule';
 
+const COUNTRY_LIST = [
+  '대한민국',
+  '레바논',
+  '바레인',
+  '사우디아라비아',
+  '시리아',
+  '아라에미리트',
+  '아프가니스탄',
+  '예멘',
+  '오만',
+  '요르단',
+  '이라크',
+  '이란',
+  '이스라엘',
+  '카타르',
+  '쿠웨이트',
+  '일본',
+  '중국',
+  '미국',
+  '캐나다',
+  '가나',
+  '가봉',
+  '괌',
+  '그리스',
+  '베트남',
+  '라오스',
+  '네팔',
+  '홍콩',
+  '호주',
+  '브라질',
+  '포르투갈',
+  '인도',
+  '칠레',
+  '영국',
+  '독일',
+  '프랑스',
+  '이탈리아',
+  '스페인',
+  '이집트',
+  '헝가리',
+  '폴란드',
+  '인도네시아',
+  '말레이시아',
+  '타이',
+  '싱가포르',
+  '멕시코',
+];
+
 const Payment = () => {
+  const [form, setForm] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    last_name: '',
+    first_name: '',
+    birth: '',
+    nationality: '',
+    gender: '',
+    agreed: [],
+  });
+
+  const handleInputForm = e => {
+    const { name, value } = e.target;
+    setForm({ ...form, [name]: value });
+  };
+  const handleCheckbox = e => {
+    const { name, checked } = e.target;
+    checked
+      ? setForm({ ...form, agreed: form.agreed.concat([name]) })
+      : setForm({ ...form, agreed: form.agreed.filter(el => el !== name) });
+  };
+  const handleCheckAll = e => {
+    const { checked } = e.target;
+    checked
+      ? setForm({
+          ...form,
+          agreed: ['common', 'payment', 'refund', 'private'],
+        })
+      : setForm({ ...form, agreed: [] });
+  };
+  const isCheckedCheckbox = name => {
+    return form.agreed.includes(name);
+  };
+  const { name, email, phone, last_name, first_name, birth, agreed } = form;
+  const inputValid = Boolean(
+    name &&
+      email &&
+      phone &&
+      last_name &&
+      first_name &&
+      birth &&
+      agreed.length === 4
+  );
+  console.log(inputValid);
+  /* fetch(`${api}`, {
+      method: 'POST',
+      headers: {'Autorization':token},
+      body: JSON.stringify({
+        name: name,
+        email: email,
+        phone:phone,
+        last_name: last_name,
+        first_name:first_name,
+        birth:birth
+        nationality: nationality,
+        gender:'',
+      }),
+    })
+      .then(res => res.json())
+      .then(res => {
+        if (res.MESSEGE === 'SUCESS') {
+          alret('결제 완료되었습니다.');
+        }
+      });
+  }; */
+
   return (
     <AllBox>
       <Reservation>예약하기</Reservation>
@@ -14,13 +129,13 @@ const Payment = () => {
               <Start>
                 <Go>가는편</Go>
                 <Sentence>
-                  <Zone>김포</Zone>
+                  {/* <Zone>{depature_airport}</Zone> */}
                   <Arrow
                     alt="화살표"
                     src="https://flights.myrealtrip.com/air/imgs_ibe/mrt/ico/main/ico_fromto_line.png"
                   />
-                  <Area>제주</Area>
-                  <Day>10월 26일 (화)</Day>
+                  {/* <Area>{arrival_airport}</Area>
+                  <Day>{start_date}</Day> */}
                 </Sentence>
               </Start>
 
@@ -29,20 +144,20 @@ const Payment = () => {
               <Coming>
                 <TheCome>오는편</TheCome>
                 <Sentence>
-                  <Zone>제주</Zone>
+                  {/* <Zone>{deapature_airport}</Zone> */}
                   <Arrow
                     alt="화살표"
                     src="https://flights.myrealtrip.com/air/imgs_ibe/mrt/ico/main/ico_fromto_line.png"
                   />
-                  <Area>김포</Area>
-                  <Day>10월 29일 (금)</Day>
+                  {/* <Area>{arrival_airport}</Area>
+                  <Day>{start_date}</Day> */}
                 </Sentence>
               </Coming>
-              <FlightCom>비행기 스케줄 컴포넌트</FlightCom>
+              <Flightschedule />
 
               <TotalPay>
                 <TotalAdd>총 상품 금액 </TotalAdd>
-                <Won>원</Won>
+                {/* <Won>{total_price}원</Won> */}
               </TotalPay>
 
               <PriceInfoBtn>
@@ -75,19 +190,25 @@ const Payment = () => {
             <BookerForm>
               <BookName>
                 <ReservationName>예약자 이름 </ReservationName>
-                <Input />
+                <Input name="name" onChange={handleInputForm} />
               </BookName>
               <BookAdderess>
                 <Address>이메일 주소 </Address>
-                <Input />
+                <Input name="email" onChange={handleInputForm} />
                 <Exactly>
                   입력하신 이메일로 예약 확정 및 바우처 메일이 전송됩니다.
                   정확하게 입력해주세요.
                 </Exactly>
               </BookAdderess>
               <BookPhoneNum>
-                <NumberPhone>휴대전화 번호 </NumberPhone>
-                <Input placeholder=" '-를 빼고 입력해주세요.' " />
+                <NumberPhone onChange={handleInputForm}>
+                  휴대전화 번호
+                </NumberPhone>
+                <Input
+                  placeholder=" '-를 빼고 입력해주세요.' "
+                  name="phone"
+                  onChange={handleInputForm}
+                />
                 <Exactly>
                   스케줄 변동, 결항 등의 상황 발생 시 연락할 수 있는 번호를
                   정확하게 입력해주세요.
@@ -110,96 +231,47 @@ const Payment = () => {
               </Attention>
               <LastName>
                 <KoreaLast>한글 성</KoreaLast>
-                <Input placeholder="홍" />
+                <Input
+                  placeholder="홍"
+                  name="last_name"
+                  onChange={handleInputForm}
+                />
               </LastName>
               <FirstName>
                 <Name>한글 이름</Name>
-                <Input placeholder="길동" />
+                <Input
+                  placeholder="길동"
+                  name="first_name"
+                  onChange={handleInputForm}
+                />
               </FirstName>
               <Birth>
                 <Date>생년월일</Date>
-                <Input placeholder="YYYYMMDD" />
+                <Input
+                  placeholder="YYYYMMDD"
+                  name="birth"
+                  onChange={handleInputForm}
+                />
               </Birth>
               <Choice>
                 <Gender>성별</Gender>
-                <span>
-                  <Button>남 </Button>
-                </span>
-                <span>
-                  <Button>여 </Button>
-                </span>
+
+                <Button name="gender" value="true" onClick={handleInputForm}>
+                  남
+                </Button>
+
+                <Button name="gender" value="false" onClick={handleInputForm}>
+                  여
+                </Button>
               </Choice>
               <div>
-                <Nationality>
+                <Nationality name="nationality">
                   <Country>국적</Country>
                 </Nationality>
-                <Select>
-                  <option>대한민국</option>
-                  <option>레바논</option>
-                  <option>바레인</option>
-                  <option>사우디아라비아</option>
-                  <option>시리아</option>
-                  <option>아랍에미리트</option>
-                  <option>아르메니아</option>
-                  <option>아프가니스탄</option>
-                  <option>예멘</option>
-                  <option>오만</option>
-                  <option>요르단</option>
-                  <option>이라크</option>
-                  <option>이란</option>
-                  <option>이스라엘</option>
-                  <option>카타르</option>
-                  <option>쿠웨이트</option>
-                  <option>일본</option>
-                  <option>중국</option>
-                  <option>미국</option>
-                  <option>캐나다</option>
-                  <option>가나</option>
-                  <option>가봉</option>
-                  <option>과델로펠도</option>
-                  <option>과테멜라</option>
-                  <option>괌</option>
-                  <option>그레나다</option>
-                  <option>그리스</option>
-                  <option>베트남</option>
-                  <option>라오스</option>
-                  <option>네덜란드</option>
-                  <option>뉴칼레도니아</option>
-                  <option>모리셔스</option>
-                  <option>네팔</option>
-                  <option>노르웨이</option>
-                  <option>독일</option>
-                  <option>프랑스</option>
-                  <option>이탈리아</option>
-                  <option>스페인</option>
-                  <option>영국</option>
-                  <option>아일랜드</option>
-                  <option>베넬수엘라</option>
-                  <option>칠레</option>
-                  <option>브라질</option>
-                  <option>아르헨티나</option>
-                  <option>포르투갈</option>
-                  <option>러시아</option>
-                  <option>헝가리</option>
-                  <option>홍콩</option>
-                  <option>호주</option>
-                  <option>우루과이</option>
-                  <option>이집트</option>
-                  <option>남아프리카공화국</option>
-                  <option>인도네시아</option>
-                  <option>말레이시아</option>
-                  <option>터키</option>
-                  <option>쿠바</option>
-                  <option>타이</option>
-                  <option>오스트리아</option>
-                  <option>인도</option>
-                  <option>폴란드</option>
-                  <option>핀란드</option>
-                  <option>필리핀</option>
-                  <option>페루</option>
-                  <option>헝가리</option>
-                  <option>피지</option>
-                  <option>파라과이</option>
+                <Select onClick={handleInputForm}>
+                  {COUNTRY_LIST.map(country => (
+                    <option>{country}</option>
+                  ))}
                 </Select>
               </div>
             </PassengerForm>
@@ -208,37 +280,70 @@ const Payment = () => {
         <Pay>
           <PayInfo>결제 정보</PayInfo>
           <OrderPrice>주문금액</OrderPrice>
+          {/* <OrderNum> {total_price}원 </OrderNum> */}
           <Add>
             <Total>총 결제 금액 </Total>
-            <Num>원</Num>
+            {/* <Num>{total_price}원</Num> */}
           </Add>
           <Terms>
             <Accept> 약관 동의</Accept>
             <Essential>(필수)</Essential>
           </Terms>
           <AllAccept>
-            <Check type="checkbox" />
+            <Check
+              type="checkbox"
+              name="chackAll"
+              checked={form.agreed.length === 4 ? true : false}
+              onChange={handleCheckAll}
+            />
             <Label>전체 약관 동의</Label>
           </AllAccept>
           <ItemAccpt>
             <FirstList>
-              <Check type="checkbox" />
+              <Check
+                type="checkbox"
+                name="common"
+                checked={isCheckedCheckbox('common')}
+                onChange={handleCheckbox}
+              />
               <Label>공통 안내사항 동의</Label>
             </FirstList>
             <SecondList>
-              <Check type="checkbox" />
+              <Check
+                type="checkbox"
+                name="payment"
+                checked={isCheckedCheckbox('payment')}
+                onChange={handleCheckbox}
+              />
               <Label>결제 규정 동의</Label>
             </SecondList>
             <ThirdList>
-              <Check type="checkbox" />
+              <Check
+                type="checkbox"
+                name="refund"
+                checked={isCheckedCheckbox('refund')}
+                onChange={handleCheckbox}
+              />
               <Label>변경 및 환불 규정 동의</Label>
             </ThirdList>
             <FourthList>
-              <Check type="checkbox" />
+              <Check
+                type="checkbox"
+                name="private"
+                checked={isCheckedCheckbox('private')}
+                onChange={handleCheckbox}
+              />
               <Label>개인정보 수집 및 이용 동의</Label>
             </FourthList>
           </ItemAccpt>
-          <PayBtn> 원 결제하기 </PayBtn>
+          <PayBtn
+            inputValid={inputValid}
+            onClick={() =>
+              inputValid ? null : alert('필수 정보 입력해주세요.')
+            }
+          >
+            원 결제하기
+          </PayBtn>
         </Pay>
       </Container>
     </AllBox>
@@ -250,11 +355,14 @@ export default Payment;
 const AllBox = styled.div`
   display: flex;
   justify-content: space-evenly;
+  margin-top: 30px;
+  margin-left: 20px;
 `;
 
 const Reservation = styled.p`
   display: flex;
-  margin-right: -160px;
+
+  margin-right: -145px;
   padding-left: 190px;
   font-size: 27px;
   color: #343a40;
@@ -265,7 +373,7 @@ const Reservation = styled.p`
 
 const Container = styled.div`
   display: flex;
-  margin-right: 160px;
+  margin-right: 80px;
 `;
 
 const FligtInfo = styled.p`
@@ -283,6 +391,7 @@ const Start = styled.div`
   display: flex;
   margin-top: 15px;
   margin-bottom: 10px;
+  margin-left: 10px;
 `;
 
 const Go = styled.span`
@@ -321,17 +430,11 @@ const Day = styled.span`
   color: #343a40;
 `;
 
-const FlightCom = styled.li`
-  list-style: none;
-  width: 679px;
-  height: 96px;
-  border: 1px solid;
-`;
-
 const Coming = styled.li`
   display: flex;
   margin-top: 15px;
   margin-bottom: 10px;
+  margin-left: 10px;
 `;
 
 const TheCome = styled.span`
@@ -348,18 +451,21 @@ const TheCome = styled.span`
 const TotalPay = styled.div`
   display: flex;
   justify-content: space-between;
+  margin-left: 20px;
   padding-top: 25px;
-  width: 679px;
+  width: 784px;
   height: 65px;
   border-bottom: 1px solid #adb5bd;
 `;
 
 const TotalAdd = styled.span`
+  margin-left: 20px;
   font-size: 14px;
   color: #343a40;
 `;
 
 const Won = styled.span`
+  margin-right: 20px;
   font-size: 18px;
   color: #343a40;
   font-weight: bold;
@@ -369,6 +475,7 @@ const PriceInfoBtn = styled.button`
   display: flex;
   transform: translate(80%, 40%);
   margin-bottom: 10px;
+  margin-left: 40px;
   width: 248px;
   height: 48px;
   background-color: #ffffff;
@@ -624,6 +731,10 @@ const OrderPrice = styled.p`
   border-top: 1px solid #adb5bd;
 `;
 
+const OrderNum = styled.span`
+  font-size: 14px;
+`;
+
 const Add = styled.div`
   display: flex;
   justify-content: space-between;
@@ -712,7 +823,7 @@ const PayBtn = styled.button`
   margin-left: 20px;
   padding-left: 10px;
   color: #ffffff;
-  background-color: #51abf3;
+  background-color: ${props => (props.inputValid ? '#51abf3' : 'grey')};
   font-size: 16px;
   font-weight: bold;
   border-radius: 4px;
