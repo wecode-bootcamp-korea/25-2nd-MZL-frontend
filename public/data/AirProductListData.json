@@ -1,0 +1,58 @@
+{
+  "plane_info": [
+    {
+      "id": 0,
+      "start_date": "2021-11-02",
+      "end_date": "2021-11-02",
+      "price": 13000,
+      "departure_airport": "김포",
+      "arrive_airport": "제주",
+      "img_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFwvX8nRIIq81y1TR1ELyGkBnEmQuXu1N96Q&usqp=CAU"
+    },
+    {
+      "id": 1,
+      "start_date": "2021-11-04",
+      "end_date": "2021-11-04",
+      "price": 25000,
+      "departure_airport": "김포",
+      "arrive_airport": "제주",
+      "img_url": "https://blog.kakaocdn.net/dn/bAFmYH/btqPuSsxNc2/J1sKg1JLWNXV7HEEbQumYk/img.jpg"
+    },
+    {
+      "id": 0,
+      "start_date": "2021-11-02",
+      "end_date": "2021-11-02",
+      "price": 13000,
+      "departure_airport": "김포",
+      "arrive_airport": "제주",
+      "img_url": "https://media.cntraveler.com/photos/60f5a7fa964f812d9f962ceb/master/pass/Stargazing-2021_PRK0G2.jpg"
+    },
+    {
+      "id": 1,
+      "start_date": "2021-11-04",
+      "end_date": "2021-11-04",
+      "price": 25000,
+      "departure_airport": "김포",
+      "arrive_airport": "제주",
+      "img_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQPlF5CqftzUcyGPgW4Mo21QoqZHYu25k2FA&usqp=CAU"
+    },
+    {
+      "id": 0,
+      "start_date": "2021-11-02",
+      "end_date": "2021-11-02",
+      "price": 13000,
+      "departure_airport": "김포",
+      "arrive_airport": "제주",
+      "img_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFwvX8nRIIq81y1TR1ELyGkBnEmQuXu1N96Q&usqp=CAU"
+    },
+    {
+      "id": 1,
+      "start_date": "2021-11-04",
+      "end_date": "2021-11-04",
+      "price": 25000,
+      "departure_airport": "김포",
+      "arrive_airport": "제주",
+      "img_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFwvX8nRIIq81y1TR1ELyGkBnEmQuXu1N96Q&usqp=CAU"
+    }
+  ]
+}

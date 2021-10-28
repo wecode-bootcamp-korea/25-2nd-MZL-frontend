@@ -3,7 +3,40 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import styled from 'styled-components/macro';
-import ProductCard from './ProductCard/ProductCard';
+import AirProductCard from './AirProductCard';
+function AirProductList() {
+  const [airProductList, setAirProductList] = useState([]);
+
+  useEffect(() => {
+    fetch('/data/AirProductListData.json')
+      .then(res => res.json())
+      .then(data => {
+        setAirProductList(data.plane_info);
+      });
+  }, []);
+
+  return (
+    <SliderContainer>
+              
+      <Slider {...settings}>
+        {airProductList.map(plane_info => {
+          return (
+            <AirProductCard
+              key={plane_info.id}
+              departure_airport={plane_info.departure_airport}
+              start_date={plane_info.start_date}
+              arrive_airport={plane_info.arrive_airport}
+              img_url={plane_info.image}
+              end_date={plane_info.end_date}
+              price={plane_info.price}
+            />
+          );
+        })}
+      </Slider>
+            
+    </SliderContainer>
+  );
+}
 
 const settings = {
   dots: true,
@@ -65,39 +98,4 @@ const SliderContainer = styled.div`
     }
 `;
 
-function ProductList() {
-  const [productList, setProductList] = useState([]);
-
-  useEffect(() => {
-    fetch('data/ProductListData.json')
-      .then(res => res.json())
-      .then(data => {
-        setProductList(data.product);
-      });
-  }, []);
-
-  return (
-    <SliderContainer>
-              
-      <Slider {...settings}>
-        {productList.map(product => {
-          return (
-            <ProductCard
-              key={product.id}
-              img_url={product.img_url}
-              category={product.category}
-              title={product.title}
-              star={product.star}
-              review_count={product.review_count}
-              original={product.original}
-              discount={product.discount}
-            />
-          );
-        })}
-      </Slider>
-            
-    </SliderContainer>
-  );
-}
-
-export default ProductList;
+export default AirProductList;
