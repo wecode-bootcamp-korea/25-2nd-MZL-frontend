@@ -7,13 +7,14 @@ import Flightschedule from './components/Flightschedule/Flightschedule';
 import ProductList from './components/ProductList/ProductList';
 import MainCityList from './pages/maincitylist/MainCityList';
 import Login from './pages/Login/Login';
-import Flightmainpage from './pages/flightmainpage/Flightmainpage';
+import Booking from './pages/booking/Booking';
 
 class Routes extends React.Component {
   render() {
     return (
       <Router>
         <Nav />
+        {/* <SimpleSlider /> */}
         <Switch>
           <Route exact path="/" component={Main} />
           <Route exact path="/fs" component={Flightschedule} />
@@ -21,6 +22,8 @@ class Routes extends React.Component {
           <Route exact path="/maincitylist" component={MainCityList} />
           <Route exact path={['/login', '/signup']} component={Login} />
           <Route exact path="/air" component={Flightmainpage} />
+          <Route exact path="/booking" component={Booking} />
+          <Route exact path="/book" component={Booking} />
         </Switch>
         <Footer />
       </Router>
