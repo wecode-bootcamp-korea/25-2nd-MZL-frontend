@@ -65,7 +65,7 @@ function Nav(props) {
       <Navi>
         {MENU_LIST.map(menu => (
           <List key={menu.id}>
-            <SLink to="/">{menu.name}</SLink>
+            <SLink to="/air">{menu.name}</SLink>
           </List>
         ))}
       </Navi>

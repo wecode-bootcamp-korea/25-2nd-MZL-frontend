@@ -24,13 +24,12 @@ const ImageLists = [
 ];
 
 const SliderWrap = styled.div`
-  margin: 150px 450px 150px 450px;
-
+  margin-left: 470px;
+  margin-right: 500px;
   img {
     width: 100%;
-    height: 30em;
-    border-radius: 9px;
-    // object-fit: cover;
+    height: 20em;
+    border-radius: 5px;
     cursor: pointer;
   }
 
