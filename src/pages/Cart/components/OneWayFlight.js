@@ -41,7 +41,7 @@ const Data = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 80%;
+  width: 100%;
   height: 70px;
   margin: 10px 0 24px 0;
   padding: 16px 24px;
