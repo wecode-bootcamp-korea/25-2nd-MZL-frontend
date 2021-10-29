@@ -1,78 +1,85 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Flightschedule = props => {
-  const {
-    airline,
-    logoImage,
-    departureTime,
-    arriveTime,
-    seat,
-    extraSeat,
-    price,
-    getSelectFlight,
-    airport_arrive_eng,
-    airport_depart_eng,
-    id,
-  } = props;
+function OneWayFlight({ ticket, title, direction, date, dway, away }) {
+  const { airline, code, logoImage, departureTime, arriveTime, seat, price } =
+    ticket;
 
   return (
-    <Container>
+    <Data>
+      <Direction>{title}</Direction>
+      <DirectionArea>{direction}</DirectionArea>
+      <DirectionDate>{date}</DirectionDate>
       <Photo>
-        <Img src={logoImage} />
+        <Img alt={airline} src={logoImage} />
       </Photo>
       <Air>
         <p>{airline}</p>
-        <p>SN394</p>
+        <p>{code}</p>
       </Air>
       <Time>
         <H>{departureTime}</H>
-        <Gmp>{airport_depart_eng}</Gmp>
+        <Gmp>{dway}</Gmp>
       </Time>
       <Div>
         <Arrow alt="화살표" src="/images/arrow.png" />
         <Hour> 1시간 10분 </Hour>
       </Div>
       <Arrive>
-        <ArriveTime>{arriveTime} </ArriveTime>
-        <Destination>{airport_arrive_eng}</Destination>
+        <ArriveTime>{arriveTime}</ArriveTime>
+        <Destination>{away}</Destination>
       </Arrive>
-      <Seat> {seat} </Seat>
-      <Remain> {extraSeat} </Remain>
-      <Price> {price}원</Price>
-      <Button onClick={() => getSelectFlight(props)}>선택</Button>
-    </Container>
+      <Seat>{seat}</Seat>
+      <Price>{price.toLocaleString()}원</Price>
+    </Data>
   );
-};
+}
 
-const Container = styled.div`
+export default OneWayFlight;
+
+const Data = styled.div`
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  margin-bottom: 10px;
-  padding: 0 20px;
+  align-items: center;
   width: 100%;
-  height: 80px;
-  border: 0.5px solid rgba(0, 0, 0, 0.1);
+  height: 70px;
+  margin: 10px 0 24px 0;
+  padding: 16px 24px;
   background-color: white;
   border-radius: 3px;
-  &:hover {
-    box-shadow: 0px 0.3px 0.5px 0.3px rgba(0, 0, 0, 0.2);
-  }
+  border: 0.5px solid rgba(0, 0, 0, 0.1);
+`;
+
+const Direction = styled.span`
+  padding: 5px 5px;
+  background-color: ${props => props.theme.subColor};
+  border-radius: 2px;
+  color: white;
+  font-size: 13px;
+  font-weight: 600;
+`;
+
+const DirectionArea = styled.span`
+  padding-top: 3px;
+  font-size: 16px;
+  font-weight: 500;
+`;
+
+const DirectionDate = styled.span`
+  padding-top: 3px;
+  font-size: 14px;
 `;
 
 const Photo = styled.div``;
 
 const Img = styled.img`
   width: 40px;
-  margin-right: 10px;
 `;
 
 const Air = styled.div`
   display: flex;
   flex-direction: column;
   gap: 8px;
-  margin-left: -40px;
   font-size: 13px;
 `;
 
@@ -80,7 +87,6 @@ const Time = styled.div`
   display: flex;
   flex-direction: column;
   gap: 10px;
-  margin-right: -35px;
 `;
 
 const H = styled.p`
@@ -100,7 +106,6 @@ const Div = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 7px;
-  margin-right: -35px;
 `;
 
 const Arrow = styled.img`
@@ -137,30 +142,7 @@ const Seat = styled.div`
   color: #343a40;
 `;
 
-const Remain = styled.p`
-  font-size: 13px;
-  color: #343a40;
-`;
-
 const Price = styled.strong`
-  margin-right: -20px;
   font-size: 20px;
   font-weight: bold;
 `;
-
-const Button = styled.button`
-  width: 64px;
-  height: 40px;
-  color: #ffffff;
-  background-color: #51abf3;
-  font-weight: bold;
-  border: none;
-  transition: all 0.08s ease-out;
-
-  &:hover {
-    background-color: ${props => props.theme.subColor};
-    cursor: pointer;
-  }
-`;
-
-export default Flightschedule;

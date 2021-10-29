@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import SimpleSlider from '../../components/Advertisement/Advertisement';
 import Searchflight from '../../components/flightmain/Searchflight';
-import AirProductList from '../../components/flightmain/AirProductList';
+// import AirProductList from '../../components/flightmain/AirProductList';
 import ProductList from '../../components/ProductList/ProductList';
 
 const FlightMainPage = () => {
@@ -10,9 +10,9 @@ const FlightMainPage = () => {
     <Flightmain>
       <Searchflight />
       <SimpleSlider />
-      <Subtitle>세계 최고가 항공권</Subtitle>
-      <AirProductList />
-      <Subtitle>세계 최고가 상품</Subtitle>
+
+      {/* <AirProductList /> */}
+      <Subtitle>세계 최저가 상품</Subtitle>
       <ProductList />
     </Flightmain>
   );
