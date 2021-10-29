@@ -4,11 +4,12 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import styled from 'styled-components/macro';
 import AirProductCard from './AirProductCard';
+
 function AirProductList() {
   const [airProductList, setAirProductList] = useState([]);
 
   useEffect(() => {
-    fetch('/data/AirProductListData.json')
+    fetch('http://10.58.6.180:8000/menus/planecategory')
       .then(res => res.json())
       .then(data => {
         setAirProductList(data.plane_info);

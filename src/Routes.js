@@ -9,6 +9,9 @@ import MainCityList from './pages/maincitylist/MainCityList';
 import Login from './pages/Login/Login';
 import Flightmainpage from './pages/flightmainpage/Flightmainpage';
 import Cart from './components/Cart/Cart';
+import Booking from './pages/booking/Booking';
+import Cart from './pages/Cart';
+import Payment from './pages/Payment/Payment';
 
 class Routes extends React.Component {
   render() {
@@ -23,6 +26,9 @@ class Routes extends React.Component {
           <Route exact path={['/login', '/signup']} component={Login} />
           <Route exact path="/air" component={Flightmainpage} />
           <Route exact path="/cart" component={Cart} />
+          <Route exact path="/reservations" component={Booking} />
+          <Route exact path="/cart" component={Cart} />
+          <Route exact path="/payment" component={Payment} />
         </Switch>
         <Footer />
       </Router>

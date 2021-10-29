@@ -4,9 +4,9 @@ import FlightSchedule from './FlightCalendar';
 import styled from 'styled-components/macro';
 import RouteTable from './RouteTable';
 import Passengers from './Flightpassengers';
+import { Link } from 'react-router-dom';
 
 const Searchflight = () => {
-  const history = useHistory();
   const [isModalOpen, setIsOpenModal] = useState(false);
   const [cities, setCities] = useState({ departure: '', arrival: '' });
   const [startDate, setStartDate] = useState(new Date());
@@ -68,11 +68,11 @@ const Searchflight = () => {
     }
   };
 
-  const handleBtn = () => {
-    history.push(
-      `/air?departure=${cities.departure}&arriaval=${cities.arrival}`
-    );
-  };
+  // const handleBtn = () => {
+  //   history.push(
+  //     `/air?departure=${cities.departure}&arriaval=${cities.arrival}`
+  //   );
+  // };
 
   // console.log(
   //   `${startDate.getMonth() + 1}-${startDate.getDate()}`,
@@ -163,7 +163,17 @@ const Searchflight = () => {
                       승객 {passengersTotal}명, {seatType}
                     </PassengerReservationButton>
                   </ResevationButtonWrapper>
-                  <SearchButton onClick={handleBtn}>검색</SearchButton>
+                  <SearchButton
+                    to={{
+                      pathname: '/reservations',
+                      state: {
+                        airport_depart: `${cities.departure}`,
+                        airport_arrive: `${cities.arrival}`,
+                      },
+                    }}
+                  >
+                    검색
+                  </SearchButton>
                 </Journeyli>
               </Journeyul>
             </Journey>
@@ -198,6 +208,7 @@ const SearchMain = styled.main`
   display: flex;
   justify-content: center;
   align-content: center;
+  background-color: #fff;
 `;
 
 const SearchSection = styled.section`
@@ -302,13 +313,15 @@ const PassengerReservationButton = styled.button`
   cursor: pointer;
 `;
 
-const SearchButton = styled.button`
+const SearchButton = styled(Link)`
   width: 70px;
   height: 42px;
   margin-left: 15px;
   font-size: 15px;
   font-weight: bold;
-  border: 1px solid #2b96ec;
+  text-decoration: none;
+  text-align: center;
+  padding-top: 13px;
   color: white;
   background-color: #2b96ec;
   cursor: pointer;

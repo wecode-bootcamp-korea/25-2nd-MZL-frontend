@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, useHistory, withRouter } from 'react-router-dom';
 import styled from 'styled-components';
+import API from '../../config';
 
 const { Kakao } = window;
 
@@ -10,7 +11,7 @@ function Login({ location: { pathname } }) {
   const kakaoLogin = () => {
     Kakao.Auth.login({
       success: function (authObj) {
-        fetch('http://10.58.5.193:8000/users/login', {
+        fetch(API.login, {
           method: 'GET',
           headers: { Authorization: authObj.access_token },
         })
