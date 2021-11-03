@@ -27,8 +27,8 @@
 - **Common** : Git, Github, Slack, Trello
 
 ## 🗜 데이터베이스 DIAGRAM
-<!-- ![SPAO_diagram_final](https://user-images.githubusercontent.com/78721108/137625673-58007c42-c404-4489-be98-d9a47b6dfe4d.png)
- -->
+![MZL_final](![image (1)](https://user-images.githubusercontent.com/87818170/139994982-874a2c7c-66b4-4b16-ad02-891de91577cb.png))
+
  
 ## 💻 구현 기능
 
@@ -43,7 +43,12 @@
 - 
 
 #### 정경훈
-- 
+- Slick-slider 라이브러리를 이용한 메인페이지 광고슬라이드 컴포넌트 기능구현
+- Date-picker 라이브러리를 이용한 예약페이지 서치바 달력 기능 구현
+- 메인페이지 컴포넌트 취합 및 페이지 레이아웃 구성
+- 항공예약 페이지 레이아웃 구성
+- 항공예약 페이지 서치바 컴포넌트 구성
+- 서치바 기능구현(모달창 및 각 종 버튼 이벤트 구현) 
 
 ## ❗ Reference
 - 이 프로젝트는 [**마이리얼트립**](https://www.myrealtrip.com/) 사이트를 참조하여 학습목적으로 만들었습니다.
