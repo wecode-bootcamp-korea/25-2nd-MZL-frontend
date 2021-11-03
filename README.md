@@ -1,5 +1,5 @@
 # MZL Project
-![MZL 메인](![Hnet-image (1)](https://user-images.githubusercontent.com/87818170/139971054-36ccc0ac-efce-47a3-80ab-d76d653de63e.gif)
+[MZL 메인](![Hnet-image (1)](https://user-images.githubusercontent.com/87818170/139971054-36ccc0ac-efce-47a3-80ab-d76d653de63e.gif)
 )
 
 ## 🎇 팀명 : MZL - 무조건 즐기는 자세로 임한다.
