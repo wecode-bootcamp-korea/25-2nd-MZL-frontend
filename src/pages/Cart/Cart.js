@@ -1,8 +1,8 @@
 import React from 'react';
 import { useHistory } from 'react-router';
 import styled from 'styled-components';
-import DetailedFee from '../components/DetailedFee';
-import OneWayFlight from '../components/OneWayFlight';
+import DetailedFee from './components/DetailedFee';
+import OneWayFlight from './components/OneWayFlight';
 // import API from '../../config';
 
 function Cart() {

@@ -1,13 +1,14 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components/macro';
+// import { API } from '../../config';
 
 const Fee = styled.div`
   margin-top: 16px;
   padding: 24px;
   background-color: #fff;
   border-radius: 2px;
-  width: 80%;
+  width: 100%;
   margin: 0 auto;
 `;
 
@@ -104,23 +105,23 @@ const Unit = styled.span`
   font-weight: 600;
 `;
 
-const Btn = styled.div`
+const Btn = styled(Link)`
   text-align: right;
   padding-top: 16px;
-  font-weight: 700;
 `;
 
 const BookingBtn = styled.button`
-  line-height: 24px;
   font-weight: 700;
-  padding: 0 10px;
-  background-color: #51abf3;
   color: white;
+  padding: 0 10px;
+  min-width: 120px;
+  text-align: center;
   height: 48px;
   border-radius: 2px;
-  font-size: 16px;
   border: none;
-  min-width: 120px;
+  background-color: #51abf3;
+  font-size: 16px;
+  cursor: pointer;
 `;
 
 function DetailedFee({ total }) {
@@ -160,7 +161,18 @@ function DetailedFee({ total }) {
               <Unit>원</Unit>
             </Cost>
             <Btn>
-              <BookingBtn>예약하기</BookingBtn>
+              <BookingBtn
+              // to={{
+              //   pathname:
+              //     '/payments/payment?depa-air=${cities.id}&arri-air=${cities.id}',
+              //   state: {
+              //     airport_depart: `${cities.departure}`,
+              //     airport_arrive: `${cities.arrive}`,
+              //   },
+              // }}
+              >
+                예약하기
+              </BookingBtn>
             </Btn>
           </TableRow>
         </TableFoot>
